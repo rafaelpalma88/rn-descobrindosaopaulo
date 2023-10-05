@@ -35,7 +35,7 @@ export function Event({
       </CustomText>
       {/* <CustomText>Sábado - 29/ABR - das 19h as 22h</CustomText> */}
       <CustomText>{title}</CustomText>
-      <CustomText>Descrição: {description}</CustomText>
+      {/* <CustomText>Descrição: {description}</CustomText> */}
       <CustomText>Endereço: {address}</CustomText>
       <TouchableOpacity onPress={() => openGoogleMaps(latitude, longitude)}>
         <Text>Abrir endereço</Text>

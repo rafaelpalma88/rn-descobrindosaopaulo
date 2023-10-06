@@ -1,4 +1,4 @@
-App Descobrindo Sao Paulo em React Native
+App Descobrindo Sao Paulo using React Native
 
-#Project Doc:
-https://descobrindo-sao-paulo.gitbook.io/untitled/
+#Project Doc (GitBook):
+https://descobrindo-sao-paulo.gitbook.io/docs/

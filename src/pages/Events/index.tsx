@@ -11,10 +11,10 @@ export function Events() {
   useEffect(() => {
     async function getEvents() {
       try {
-        // const result = await axios.get(
-        //   `https://api-descobrindo-sao-paulo.herokuapp.com/events`,
-        // )
-        const result = await axios.get(`http://localhost:3000/events`)
+        const result = await axios.get(
+          `https://api-descobrindosaopaulo.onrender.com/events`,
+        )
+        // const result = await axios.get(`http://localhost:3000/events`)
         setEvents(result.data)
       } catch (error) {
         console.log(error)
@@ -23,10 +23,6 @@ export function Events() {
 
     getEvents()
   }, [])
-
-  useEffect(() => {
-    console.log('events xxx', events)
-  }, [events])
 
   return (
     <Container>

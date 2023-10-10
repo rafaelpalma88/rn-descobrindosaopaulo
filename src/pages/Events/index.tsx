@@ -1,12 +1,13 @@
 import axios from 'axios'
-import { Text } from 'react-native'
-import { Container } from './styles'
+import { Text, View } from 'react-native'
+import * as S from './styles'
 import { useEffect, useState } from 'react'
 import { Event } from '../../components/Event'
 import { IEvent } from '../../types/event'
 
 export function Events() {
   const [events, setEvents] = useState<IEvent[]>([])
+  const [loading, setLoading] = useState<boolean>(true)
 
   useEffect(() => {
     async function getEvents() {
@@ -14,10 +15,11 @@ export function Events() {
         const result = await axios.get(
           `https://api-descobrindosaopaulo.onrender.com/events`,
         )
-        // const result = await axios.get(`http://localhost:3000/events`)
         setEvents(result.data)
       } catch (error) {
         console.log(error)
+      } finally {
+        setLoading(false)
       }
     }
 
@@ -25,8 +27,8 @@ export function Events() {
   }, [])
 
   return (
-    <Container>
-      <Text>Eventos</Text>
+    <S.Container>
+      <S.Title>Eventos</S.Title>
 
       {events
         .filter((event) => event.active)
@@ -47,6 +49,20 @@ export function Events() {
             />
           )
         })}
-    </Container>
+
+      {loading && (
+        <View>
+          <Text>Carregando eventos...</Text>
+        </View>
+      )}
+
+      {events.length === 0 && (
+        <View>
+          <Text>Não há eventos cadastrados</Text>
+        </View>
+      )}
+
+      {/* Caso haja erro na API, fazer um tratamento e exibir na tela */}
+    </S.Container>
   )
 }

@@ -9,3 +9,9 @@ export const Container = styled.ScrollView`
   padding-right: 20px;
   padding-bottom: 20px;
 `
+
+export const Title = styled.Text`
+  font-size: 25px;
+  font-weight: bold;
+  color: white;
+`

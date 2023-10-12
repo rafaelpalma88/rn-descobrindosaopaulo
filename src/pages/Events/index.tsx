@@ -52,13 +52,13 @@ export function Events() {
 
       {loading && (
         <View>
-          <Text>Carregando eventos...</Text>
+          <Text style={{ color: '#FFF' }}>Carregando eventos...</Text>
         </View>
       )}
 
-      {events.length === 0 && (
+      {!loading && events.length === 0 && (
         <View>
-          <Text>Não há eventos cadastrados</Text>
+          <Text style={{ color: '#FFF' }}>Não há eventos cadastrados</Text>
         </View>
       )}
 

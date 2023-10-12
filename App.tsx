@@ -1,6 +1,5 @@
-import { Events } from './src/pages/Events'
-// import { Home } from './src/pages/Home';
+import { Routes } from './src/routes'
 
 export default function App() {
-  return <Events />
+  return <Routes />
 }

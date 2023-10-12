@@ -7,6 +7,7 @@ import { getMonth } from '../../utils/getMonth'
 import { getHourAndMinutes } from '../../utils/getHour'
 import { Button } from '../Button'
 import { firstLetterUppercase } from '../../utils/firstLetterUppercase'
+import { useNavigation } from '@react-navigation/native'
 
 export function Event({
   image,
@@ -22,6 +23,12 @@ export function Event({
     Linking.openURL(url)
   }
 
+  const navigation = useNavigation()
+
+  function handleContactOrganizer() {
+    navigation.navigate('contact')
+  }
+
   return (
     <S.Container>
       <S.EventTitle>{title}</S.EventTitle>
@@ -35,7 +42,7 @@ export function Event({
         text="Abrir o endereço"
         onPress={() => openGoogleMaps(latitude, longitude)}
       />
-      <Button text="Fale com o organizador" />
+      <Button onPress={handleContactOrganizer} text="Fale com o organizador" />
     </S.Container>
   )
 }

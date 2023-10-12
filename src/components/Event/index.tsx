@@ -9,8 +9,6 @@ import { Button } from '../Button'
 import { firstLetterUppercase } from '../../utils/firstLetterUppercase'
 
 export function Event({
-  id,
-  active,
   image,
   title,
   address,

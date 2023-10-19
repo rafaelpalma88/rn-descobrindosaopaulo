@@ -1,5 +1,11 @@
 import { useEffect, useState } from 'react'
-import { Text, TextInput, TouchableOpacity, View } from 'react-native'
+import {
+  ScrollView,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from 'react-native'
 import { Participant } from '../../components/Participant'
 import { styles } from './styles'
 
@@ -63,16 +69,18 @@ export function Home() {
         </TouchableOpacity>
       </View>
 
-      {participants.length > 0 &&
-        participants.map((participant) => {
-          return (
-            <Participant
-              key={participant.id}
-              name={participant.name}
-              onRemove={() => handleParticipantRemove(participant.id)}
-            />
-          )
-        })}
+      <ScrollView showsVerticalScrollIndicator={false}>
+        {participants.length > 0 &&
+          participants.map((participant) => {
+            return (
+              <Participant
+                key={participant.id}
+                name={participant.name}
+                onRemove={() => handleParticipantRemove(participant.id)}
+              />
+            )
+          })}
+      </ScrollView>
     </View>
   )
 }

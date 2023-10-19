@@ -4,6 +4,7 @@ import * as S from './styles'
 import { useEffect, useState } from 'react'
 import { Event } from '../../components/Event'
 import { IEvent } from '../../types/event'
+import { events as eventsMock } from '../../../test'
 
 export function Events() {
   const [events, setEvents] = useState<IEvent[]>([])
@@ -14,8 +15,12 @@ export function Events() {
       try {
         const result = await axios.get(
           `https://api-descobrindosaopaulo.onrender.com/events`,
+          // `http://localhost:3000/events`,
+          // `http://10.0.2.2:3000/events`,
         )
-        setEvents(result.data)
+        // console.log('result xxx', result)
+        // setEvents(result.data)
+        setEvents(eventsMock)
       } catch (error) {
         console.log(error)
       } finally {
@@ -30,25 +35,27 @@ export function Events() {
     <S.Container>
       <S.Title>Eventos</S.Title>
 
-      {events
-        .filter((event) => event.active)
-        .map((event) => {
-          return (
-            <Event
-              key={event.id}
-              id={event.id}
-              active={event.active}
-              image={event.image}
-              title={event.title}
-              address={event.address}
-              description={event.description}
-              startDate={event.startDate}
-              endDate={event.endDate}
-              latitude={event.latitude}
-              longitude={event.longitude}
-            />
-          )
-        })}
+      <S.EventsList>
+        {events
+          .filter((event) => event.active)
+          .map((event) => {
+            return (
+              <Event
+                key={event.id}
+                id={event.id}
+                active={event.active}
+                image={event.image}
+                title={event.title}
+                address={event.address}
+                description={event.description}
+                startDate={event.startDate}
+                endDate={event.endDate}
+                latitude={event.latitude}
+                longitude={event.longitude}
+              />
+            )
+          })}
+      </S.EventsList>
 
       {loading && (
         <View>

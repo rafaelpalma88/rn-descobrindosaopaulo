@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import {
-  ScrollView,
+  FlatList,
+  // ScrollView,
   Text,
   TextInput,
   TouchableOpacity,
@@ -69,6 +70,25 @@ export function Home() {
         </TouchableOpacity>
       </View>
 
+      <FlatList
+        data={participants}
+        renderItem={({ item }) => (
+          <Participant
+            key={item.id}
+            name={item.name}
+            onRemove={() => handleParticipantRemove(item.id)}
+          />
+        )}
+        keyExtractor={(item) => item.id}
+        showsVerticalScrollIndicator={false}
+        ListEmptyComponent={() => (
+          <View>
+            <Text style={{ color: 'white' }}>Lista vazia</Text>
+          </View>
+        )}
+      />
+      {/* 
+      Exemplo de ScrollView para futura consulta
       <ScrollView showsVerticalScrollIndicator={false}>
         {participants.length > 0 &&
           participants.map((participant) => {
@@ -80,7 +100,7 @@ export function Home() {
               />
             )
           })}
-      </ScrollView>
+      </ScrollView> */}
     </View>
   )
 }

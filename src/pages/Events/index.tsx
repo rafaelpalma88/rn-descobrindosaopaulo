@@ -16,9 +16,9 @@ export function Events() {
         const result = await axios.get(
           `https://api-descobrindosaopaulo.onrender.com/events`,
           // `http://localhost:3000/events`,
-          // `http://10.0.2.2:3000/events`,
+          // `http://127.0.0.1:3000/events`,
         )
-        // console.log('result xxx', result)
+        // resolver a questão do mock no expo-go
         // setEvents(result.data)
         setEvents(eventsMock)
       } catch (error) {
@@ -34,6 +34,18 @@ export function Events() {
   return (
     <S.Container>
       <S.Title>Eventos</S.Title>
+
+      {loading && (
+        <View>
+          <Text style={{ color: '#FFF' }}>Carregando eventos...</Text>
+        </View>
+      )}
+
+      {!loading && events.length === 0 && (
+        <View>
+          <Text style={{ color: '#FFF' }}>Não há eventos cadastrados</Text>
+        </View>
+      )}
 
       <S.EventsList>
         {events
@@ -56,18 +68,6 @@ export function Events() {
             )
           })}
       </S.EventsList>
-
-      {loading && (
-        <View>
-          <Text style={{ color: '#FFF' }}>Carregando eventos...</Text>
-        </View>
-      )}
-
-      {!loading && events.length === 0 && (
-        <View>
-          <Text style={{ color: '#FFF' }}>Não há eventos cadastrados</Text>
-        </View>
-      )}
 
       {/* Caso haja erro na API, fazer um tratamento e exibir na tela */}
     </S.Container>

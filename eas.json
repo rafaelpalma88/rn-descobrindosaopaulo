@@ -11,9 +11,11 @@
       }
     },
     "preview": {
-      "distribution": "internal",
-      "ios": {
-        "resourceClass": "m-medium"
+      "android": {
+        "buildType": "apk"
+      },
+      "env": {
+        "VARIAVEL_AMBIENTE_EXEMPLO": "XXXXXXX"
       }
     },
     "production": {

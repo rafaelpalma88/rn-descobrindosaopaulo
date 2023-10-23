@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import {
+  Alert,
   FlatList,
   // ScrollView,
   Text,
@@ -21,34 +22,57 @@ export function Home() {
   const [idIncrement, setIdIncrement] = useState<number>(1)
 
   async function handleParticipantAdd() {
-    await setParticipants((state) => [
-      ...state,
-      { id: String(idIncrement), name: participant },
+    // Empty participant
+    if (participant === '') {
+      return Alert.alert('Digite um nome', 'Você precisa preencher algo')
+    }
+
+    // Participant exists
+    const participantExists = participants.filter(
+      (item) => item.name === participant.trim(),
+    )
+
+    if (participantExists.length > 0) {
+      return Alert.alert('Já existe', 'O participante já existe na lista')
+    }
+
+    // Add Participant
+    await setParticipants((prevState) => [
+      ...prevState,
+      { id: String(idIncrement), name: participant.trim() },
     ])
     await setIdIncrement((state) => state + 1)
     await setParticipant('')
   }
 
-  async function handleParticipantRemove(id: string) {
+  async function handleParticipantRemove(id: string, name: string) {
     console.log(`Você clicou em remover o participante ${id}`)
 
-    const newArrayParticipants = participants.filter(
-      (participant) => participant.id !== id,
+    // return console.warn('Teste x')
+    // return console.error('Teste x')
+
+    return Alert.alert(
+      'Tem certeza?',
+      `Tem certeza que deseja remover o participante ${name} ?`,
+      [
+        {
+          text: 'Não',
+          style: 'cancel',
+        },
+        {
+          text: 'Sim',
+          onPress: async () => {
+            const newArrayParticipants = participants.filter(
+              (participant) => participant.id !== id,
+            )
+            await setParticipants(newArrayParticipants)
+
+            Alert.alert('Deletado!')
+          },
+        },
+      ],
     )
-    await setParticipants(newArrayParticipants)
   }
-
-  useEffect(() => {
-    console.log('participants', participants)
-  }, [participants])
-
-  useEffect(() => {
-    console.log('participant', participant)
-  }, [participant])
-
-  useEffect(() => {
-    console.log('idIncrement', idIncrement)
-  }, [idIncrement])
 
   return (
     <View style={styles.container}>
@@ -61,7 +85,8 @@ export function Home() {
           style={styles.input}
           placeholder="Nome do participante"
           placeholderTextColor="#6B6B6B"
-          onChangeText={setParticipant}
+          // onChangeText={setParticipant}
+          onChangeText={(e) => setParticipant(e)}
           value={participant}
         />
 
@@ -76,7 +101,7 @@ export function Home() {
           <Participant
             key={item.id}
             name={item.name}
-            onRemove={() => handleParticipantRemove(item.id)}
+            onRemove={() => handleParticipantRemove(item.id, item.name)}
           />
         )}
         keyExtractor={(item) => item.id}

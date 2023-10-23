@@ -4,7 +4,7 @@ import * as S from './styles'
 import { useEffect, useState } from 'react'
 import { Event } from '../../components/Event'
 import { IEvent } from '../../types/event'
-import { events as eventsMock } from '../../../test'
+import { events as eventsMock } from '../../../events'
 
 export function Events() {
   const [events, setEvents] = useState<IEvent[]>([])

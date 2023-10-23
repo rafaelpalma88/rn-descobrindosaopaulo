@@ -7,7 +7,7 @@ interface Props extends TouchableOpacityProps {
 
 export function Button({ text, ...rest }: Props) {
   return (
-    <S.Container {...rest}>
+    <S.Container {...rest} testID="button">
       <S.Text>{text}</S.Text>
     </S.Container>
   )

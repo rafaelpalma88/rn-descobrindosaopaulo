@@ -9,7 +9,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "server": "json-server --watch db.json",
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "dependencies": {
     "@expo/webpack-config": "^19.0.0",
@@ -36,6 +36,8 @@
   "devDependencies": {
     "@babel/core": "^7.20.0",
     "@rocketseat/eslint-config": "^1.2.0",
+    "@testing-library/jest-native": "^5.4.3",
+    "@testing-library/react-native": "^12.3.0",
     "@types/jest": "^29.5.6",
     "@types/react": "~18.2.14",
     "@types/react-native": "^0.71.5",

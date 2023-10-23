@@ -1,7 +1,7 @@
 export interface IEvent {
   id: string
   active: boolean
-  image?: any
+  image?: string
   title: string
   address?: string
   description: string[]

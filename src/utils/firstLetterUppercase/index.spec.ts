@@ -1,6 +1,6 @@
 import { firstLetterUppercase } from '.'
 
-describe('firstLetterUppercase', () => {
+describe('Utils: firstLetterUppercase', () => {
   it('should convert first letter to Uppercase', () => {
     const func = firstLetterUppercase('teste')
     expect(func).toBe('Teste')

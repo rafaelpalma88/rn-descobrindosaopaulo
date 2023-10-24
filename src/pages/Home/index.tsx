@@ -10,6 +10,8 @@ import {
 } from 'react-native'
 import { Participant } from '../../components/Participant'
 import { styles } from './styles'
+import { Button } from '../../components/Button'
+import useCustomTheme from '../../hooks/useCustomTheme'
 
 interface IParticipant {
   id: string
@@ -20,6 +22,9 @@ export function Home() {
   const [participants, setParticipants] = useState<IParticipant[]>([])
   const [participant, setParticipant] = useState<string>('')
   const [idIncrement, setIdIncrement] = useState<number>(1)
+  const { obtainTheme, changeTheme } = useCustomTheme()
+
+  const currentTheme = obtainTheme()
 
   async function handleParticipantAdd() {
     // Empty participant
@@ -94,6 +99,10 @@ export function Home() {
           <Text style={styles.buttonText}>+</Text>
         </TouchableOpacity>
       </View>
+
+      {currentTheme === 'LIGHT' && <Text>Light</Text>}
+      {currentTheme === 'DARK' && <Text>Dark</Text>}
+      <Button text="Alterar tema" onPress={changeTheme} />
 
       <FlatList
         data={participants}

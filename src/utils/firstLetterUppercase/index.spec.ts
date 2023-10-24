@@ -2,17 +2,17 @@ import { firstLetterUppercase } from '.'
 
 describe('Utils: firstLetterUppercase', () => {
   it('should convert first letter to Uppercase', () => {
-    const func = firstLetterUppercase('teste')
-    expect(func).toBe('Teste')
+    const value = firstLetterUppercase('teste')
+    expect(value).toBe('Teste')
   })
 
   it('should return text if a string is null', () => {
-    const func = firstLetterUppercase(null)
-    expect(func).toBe(null)
+    const value = firstLetterUppercase(null)
+    expect(value).toBe(null)
   })
 
   it('should return text if a string is empty', () => {
-    const func = firstLetterUppercase('')
-    expect(func).toBe('')
+    const value = firstLetterUppercase('')
+    expect(value).toBe('')
   })
 })

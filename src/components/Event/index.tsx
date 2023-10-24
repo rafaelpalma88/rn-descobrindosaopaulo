@@ -42,7 +42,11 @@ export function Event({
         text="Abrir o endereço"
         onPress={() => openGoogleMaps(latitude, longitude)}
       />
-      <Button onPress={handleContactOrganizer} text="Fale com o organizador" />
+      <Button
+        onPress={handleContactOrganizer}
+        testID="contact-organizer"
+        text="Fale com o organizador"
+      />
     </S.Container>
   )
 }

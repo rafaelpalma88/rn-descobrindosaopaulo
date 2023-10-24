@@ -1,17 +1,16 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import {
   Alert,
   FlatList,
-  // ScrollView,
   Text,
   TextInput,
   TouchableOpacity,
   View,
 } from 'react-native'
-import { Participant } from '../../components/Participant'
+import { Participant } from '@components/Participant'
+import { Button } from '@components/Button'
+import useCustomTheme from '@hooks/useCustomTheme'
 import { styles } from './styles'
-import { Button } from '../../components/Button'
-import useCustomTheme from '../../hooks/useCustomTheme'
 
 interface IParticipant {
   id: string

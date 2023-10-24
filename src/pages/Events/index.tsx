@@ -1,10 +1,10 @@
-import axios from 'axios'
-import { Text, View } from 'react-native'
-import * as S from './styles'
 import { useEffect, useState } from 'react'
-import { Event } from '../../components/Event'
+import { Text, View } from 'react-native'
+import axios from 'axios'
+import { Event } from '@components/Event'
 import { IEvent } from '../../types/event'
 import { events as eventsMock } from '../../../events'
+import * as S from './styles'
 
 export function Events() {
   const [events, setEvents] = useState<IEvent[]>([])

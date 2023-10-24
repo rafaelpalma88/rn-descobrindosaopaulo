@@ -1,7 +1,7 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import { Home } from '../pages/Home'
-import { Events } from '../pages/Events'
-import { Contact } from '../pages/Contact'
+import { Home } from '@pages/Home'
+import { Events } from '@pages/Events'
+import { Contact } from '@pages/Contact'
 
 const { Navigator, Screen } = createNativeStackNavigator()
 

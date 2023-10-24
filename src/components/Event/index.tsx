@@ -1,13 +1,13 @@
 import { Linking } from 'react-native'
-import { IEvent } from '../../types/event'
-import * as S from './styles'
-import { getDayOfWeek } from '../../utils/getDayOfWeek'
-import { getDay } from '../../utils/getDay'
-import { getMonth } from '../../utils/getMonth'
-import { getHourAndMinutes } from '../../utils/getHour'
-import { Button } from '../Button'
-import { firstLetterUppercase } from '../../utils/firstLetterUppercase'
 import { useNavigation } from '@react-navigation/native'
+import { IEvent } from '../../types/event' // aquinao funcinou o path mapping
+import { getDayOfWeek } from '@utils/getDayOfWeek'
+import { getDay } from '@utils/getDay'
+import { getMonth } from '@utils/getMonth'
+import { getHourAndMinutes } from '@utils/getHour'
+import { firstLetterUppercase } from '@utils/firstLetterUppercase'
+import { Button } from '@components/Button'
+import * as S from './styles'
 
 export function Event({
   image,

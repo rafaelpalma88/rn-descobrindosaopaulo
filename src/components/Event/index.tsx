@@ -1,6 +1,6 @@
 import { Linking } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
-import { IEvent } from '../../types/event' // aquinao funcinou o path mapping
+import { IEvent } from '../../@types/event' // aquinao funcinou o path mapping
 import { getDayOfWeek } from '@utils/getDayOfWeek'
 import { getDay } from '@utils/getDay'
 import { getMonth } from '@utils/getMonth'

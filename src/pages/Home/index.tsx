@@ -11,6 +11,7 @@ import { Participant } from '@components/Participant'
 import { Button } from '@components/Button'
 import useCustomTheme from '@hooks/useCustomTheme'
 import { styles } from './styles'
+import * as S from './styles'
 
 interface IParticipant {
   id: string
@@ -23,7 +24,8 @@ export function Home() {
   const [idIncrement, setIdIncrement] = useState<number>(1)
   const { obtainTheme, changeTheme } = useCustomTheme()
 
-  const currentTheme = obtainTheme()
+  const selectedTheme = obtainTheme()
+  console.log('selectedTheme', selectedTheme)
 
   async function handleParticipantAdd() {
     // Empty participant
@@ -79,8 +81,8 @@ export function Home() {
   }
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.eventName}>Nome do evento</Text>
+    <S.Container>
+      <Text style={styles.eventName}>Nome do evento - {selectedTheme}</Text>
 
       <Text style={styles.eventDate}>Sexta, 4 de Novembro de 2022.</Text>
 
@@ -99,8 +101,6 @@ export function Home() {
         </TouchableOpacity>
       </View>
 
-      {currentTheme === 'LIGHT' && <Text>Light</Text>}
-      {currentTheme === 'DARK' && <Text>Dark</Text>}
       <Button text="Alterar tema" onPress={changeTheme} />
 
       <FlatList
@@ -134,6 +134,6 @@ export function Home() {
             )
           })}
       </ScrollView> */}
-    </View>
+    </S.Container>
   )
 }

@@ -1,4 +1,13 @@
 import { StyleSheet } from 'react-native'
+import styled from 'styled-components/native'
+
+export const Container = styled.View`
+  background-color: ${({ theme }) => theme.colors.GRAY_700};
+  flex: 1;
+  /* backgroundColor: '#131016', */
+  padding: 24px;
+  flex-direction: column;
+`
 
 export const styles = StyleSheet.create({
   container: {

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Text, View } from 'react-native'
 import axios from 'axios'
 import { Event } from '@components/Event'
-import { IEvent } from '../../types/event'
+import { IEvent } from '../../@types/event'
 import { events as eventsMock } from '../../../events'
 import * as S from './styles'
 

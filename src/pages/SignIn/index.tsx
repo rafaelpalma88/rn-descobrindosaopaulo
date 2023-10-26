@@ -1,12 +1,15 @@
 import { useState } from 'react'
 import { Input } from '@components/Input'
-import { Center, Text, VStack, Pressable, Icon } from 'native-base'
+import { Center, Text, VStack, Pressable, Icon, ScrollView } from 'native-base'
 import { MaterialIcons } from '@expo/vector-icons'
 import { Button } from '@components/Button'
+import { useNavigation } from '@react-navigation/native'
 
 export function SignIn() {
   const [cpfNumber, setCpfNumber] = useState<string | undefined>('')
   const [show, setShow] = useState(false)
+
+  const navigation = useNavigation()
 
   const formatCPF = (text: string) => {
     // Remove todos os caracteres não numéricos do texto
@@ -28,40 +31,70 @@ export function SignIn() {
     setCpfNumber(formattedText)
   }
   return (
-    <VStack flex={1} bg="gray.900">
-      <Center style={{ flex: 1, paddingLeft: 30, paddingRight: 30 }} my={24}>
-        <Text color="gray.100" fontSize="sm" style={{ marginBottom: 40 }}>
-          Descobrindo São Paulo
-        </Text>
-        <Input
-          keyboardType="numeric"
-          placeholder="CPF"
-          value={cpfNumber}
-          onChangeText={formatCPF}
-          maxLength={14}
-        />
-        <Input
-          placeholder="Senha"
-          secureTextEntry={!show}
-          autoCapitalize="none"
-          type={show ? 'text' : 'password'}
-          InputRightElement={
-            <Pressable onPress={() => setShow(!show)}>
-              <Icon
-                as={
-                  <MaterialIcons
-                    name={show ? 'visibility' : 'visibility-off'}
-                  />
-                }
-                size={5}
-                mr="3"
-                color="muted.400"
-              />
-            </Pressable>
-          }
-        />
-        <Button text="Entrar" />
-      </Center>
-    </VStack>
+    <ScrollView
+      contentContainerStyle={{ flexGrow: 1 }}
+      showsVerticalScrollIndicator={false}
+    >
+      <VStack flex={1} bg="gray.900">
+        <Center
+          style={{
+            flex: 1,
+            paddingLeft: 30,
+            paddingRight: 30,
+          }}
+        >
+          <Text color="gray.100" fontSize="sm" style={{ marginBottom: 40 }}>
+            Descobrindo São Paulo
+          </Text>
+          <Input
+            keyboardType="numeric"
+            placeholder="CPF"
+            value={cpfNumber}
+            onChangeText={formatCPF}
+            maxLength={14}
+          />
+          <Input
+            placeholder="Senha"
+            secureTextEntry={!show}
+            autoCapitalize="none"
+            type={show ? 'text' : 'password'}
+            InputRightElement={
+              <Pressable onPress={() => setShow(!show)}>
+                <Icon
+                  as={
+                    <MaterialIcons
+                      name={show ? 'visibility' : 'visibility-off'}
+                    />
+                  }
+                  size={5}
+                  mr="3"
+                  color="muted.400"
+                />
+              </Pressable>
+            }
+          />
+          <Button variant="solid" text="Entrar" />
+        </Center>
+        <Center
+          style={{
+            paddingTop: 30,
+            paddingRight: 30,
+            paddingBottom: 50,
+            paddingLeft: 30,
+          }}
+        >
+          <Text color="white" style={{ marginTop: 10, marginBottom: 10 }}>
+            Ainda não tem acesso?
+          </Text>
+          <Button
+            variant="outline"
+            text="Solicite acesso"
+            onPress={() => {
+              navigation.navigate('signup')
+            }}
+          />
+        </Center>
+      </VStack>
+    </ScrollView>
   )
 }

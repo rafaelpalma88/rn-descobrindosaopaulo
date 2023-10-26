@@ -5,6 +5,8 @@ import { Event } from '@components/Event'
 import { IEvent } from '../../@types/event'
 import { events as eventsMock } from '../../../events'
 import * as S from './styles'
+import { Header } from '@components/Header'
+import { VStack } from 'native-base'
 
 export function Events() {
   const [events, setEvents] = useState<IEvent[]>([])
@@ -32,44 +34,47 @@ export function Events() {
   }, [])
 
   return (
-    <S.Container>
-      <S.Title>Eventos</S.Title>
+    <>
+      <Header title="Eventos" />
+      <VStack flex={1}>
+        <S.Container>
+          {loading && (
+            <View>
+              <Text style={{ color: '#FFF' }}>Carregando eventos...</Text>
+            </View>
+          )}
 
-      {loading && (
-        <View>
-          <Text style={{ color: '#FFF' }}>Carregando eventos...</Text>
-        </View>
-      )}
+          {!loading && events.length === 0 && (
+            <View>
+              <Text style={{ color: '#FFF' }}>Não há eventos cadastrados</Text>
+            </View>
+          )}
 
-      {!loading && events.length === 0 && (
-        <View>
-          <Text style={{ color: '#FFF' }}>Não há eventos cadastrados</Text>
-        </View>
-      )}
+          <S.EventsList>
+            {events
+              .filter((event) => event.active)
+              .map((event) => {
+                return (
+                  <Event
+                    key={event.id}
+                    id={event.id}
+                    active={event.active}
+                    image={event.image}
+                    title={event.title}
+                    address={event.address}
+                    description={event.description}
+                    startDate={event.startDate}
+                    endDate={event.endDate}
+                    latitude={event.latitude}
+                    longitude={event.longitude}
+                  />
+                )
+              })}
+          </S.EventsList>
 
-      <S.EventsList>
-        {events
-          .filter((event) => event.active)
-          .map((event) => {
-            return (
-              <Event
-                key={event.id}
-                id={event.id}
-                active={event.active}
-                image={event.image}
-                title={event.title}
-                address={event.address}
-                description={event.description}
-                startDate={event.startDate}
-                endDate={event.endDate}
-                latitude={event.latitude}
-                longitude={event.longitude}
-              />
-            )
-          })}
-      </S.EventsList>
-
-      {/* Caso haja erro na API, fazer um tratamento e exibir na tela */}
-    </S.Container>
+          {/* Caso haja erro na API, fazer um tratamento e exibir na tela */}
+        </S.Container>
+      </VStack>
+    </>
   )
 }

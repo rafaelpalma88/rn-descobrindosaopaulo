@@ -1,9 +1,11 @@
-import * as S from './styles'
+import { Center, Spinner, VStack } from 'native-base'
 
 export function Loading() {
   return (
-    <S.Container>
-      <S.LoadIndicator />
-    </S.Container>
+    <VStack flex={1} bgColor="gray.900">
+      <Center style={{ flex: 1, paddingLeft: 30, paddingRight: 30 }} my={24}>
+        <Spinner color="white" size="lg" />
+      </Center>
+    </VStack>
   )
 }

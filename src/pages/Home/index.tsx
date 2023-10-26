@@ -12,6 +12,7 @@ import { Button } from '@components/Button'
 import useCustomTheme from '@hooks/useCustomTheme'
 import { styles } from './styles'
 import * as S from './styles'
+import { Header } from '@components/Header'
 
 interface IParticipant {
   id: string
@@ -81,46 +82,51 @@ export function Home() {
   }
 
   return (
-    <S.Container>
-      <Text style={styles.eventName}>Nome do evento - {selectedTheme}</Text>
+    <>
+      <Header title="Home" />
+      <S.Container>
+        <Text style={styles.eventName}>Nome do evento - {selectedTheme}</Text>
 
-      <Text style={styles.eventDate}>Sexta, 4 de Novembro de 2022.</Text>
+        <Text style={styles.eventDate}>Sexta, 4 de Novembro de 2022.</Text>
 
-      <View style={styles.form}>
-        <TextInput
-          style={styles.input}
-          placeholder="Nome do participante"
-          placeholderTextColor="#6B6B6B"
-          // onChangeText={setParticipant}
-          onChangeText={(e) => setParticipant(e)}
-          value={participant}
-        />
-
-        <TouchableOpacity style={styles.button} onPress={handleParticipantAdd}>
-          <Text style={styles.buttonText}>+</Text>
-        </TouchableOpacity>
-      </View>
-
-      <Button text="Alterar tema" onPress={changeTheme} />
-
-      <FlatList
-        data={participants}
-        renderItem={({ item }) => (
-          <Participant
-            key={item.id}
-            name={item.name}
-            onRemove={() => handleParticipantRemove(item.id, item.name)}
+        <View style={styles.form}>
+          <TextInput
+            style={styles.input}
+            placeholder="Nome do participante"
+            placeholderTextColor="#6B6B6B"
+            // onChangeText={setParticipant}
+            onChangeText={(e) => setParticipant(e)}
+            value={participant}
           />
-        )}
-        keyExtractor={(item) => item.id}
-        showsVerticalScrollIndicator={false}
-        ListEmptyComponent={() => (
-          <View>
-            <Text style={{ color: 'white' }}>Lista vazia</Text>
-          </View>
-        )}
-      />
-      {/* 
+
+          <TouchableOpacity
+            style={styles.button}
+            onPress={handleParticipantAdd}
+          >
+            <Text style={styles.buttonText}>+</Text>
+          </TouchableOpacity>
+        </View>
+
+        <Button text="Alterar tema" onPress={changeTheme} />
+
+        <FlatList
+          data={participants}
+          renderItem={({ item }) => (
+            <Participant
+              key={item.id}
+              name={item.name}
+              onRemove={() => handleParticipantRemove(item.id, item.name)}
+            />
+          )}
+          keyExtractor={(item) => item.id}
+          showsVerticalScrollIndicator={false}
+          ListEmptyComponent={() => (
+            <View>
+              <Text style={{ color: 'white' }}>Lista vazia</Text>
+            </View>
+          )}
+        />
+        {/* 
       Exemplo de ScrollView para futura consulta
       <ScrollView showsVerticalScrollIndicator={false}>
         {participants.length > 0 &&
@@ -134,6 +140,7 @@ export function Home() {
             )
           })}
       </ScrollView> */}
-    </S.Container>
+      </S.Container>
+    </>
   )
 }

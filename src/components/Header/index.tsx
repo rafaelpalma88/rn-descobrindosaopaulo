@@ -1,6 +1,7 @@
 import { Button, HStack, Heading, VStack } from 'native-base'
 import { EvilIcons } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native'
+import { limitLetters } from '@utils/limitLetters'
 
 interface Props {
   title: string
@@ -26,7 +27,7 @@ export function Header({ title }: Props) {
       </Button>
       <VStack pl={2}>
         <Heading borderColor="red.700" borderWidth={1} color="gray.100">
-          {title}
+          {limitLetters(title, 20)}
         </Heading>
       </VStack>
     </HStack>

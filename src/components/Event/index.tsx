@@ -6,7 +6,8 @@ import { getDay } from '@utils/getDay'
 import { getMonth } from '@utils/getMonth'
 import { getHourAndMinutes } from '@utils/getHour'
 import { firstLetterUppercase } from '@utils/firstLetterUppercase'
-import { Button } from '@components/Button'
+// import { Button } from '@components/Button'
+import { Button } from 'native-base'
 import * as S from './styles'
 
 export function Event({
@@ -39,14 +40,18 @@ export function Event({
       </S.CustomText>
       <S.CustomText>Endereço: {address}</S.CustomText>
       <Button
-        text="Abrir o endereço"
+        // text="Abrir o endereço"
         onPress={() => openGoogleMaps(latitude, longitude)}
-      />
+      >
+        Abrir o endereço
+      </Button>
       <Button
         onPress={handleContactOrganizer}
         testID="contact-organizer"
-        text="Fale com o organizador"
-      />
+        // text="Fale com o organizador"
+      >
+        Fale com o organizador
+      </Button>
     </S.Container>
   )
 }

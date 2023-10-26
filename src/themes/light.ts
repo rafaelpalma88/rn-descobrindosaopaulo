@@ -1,6 +1,7 @@
-export default {
+import { extendTheme } from 'native-base'
+
+export const light = extendTheme({
   colors: {
-    // backgroundColor: '#FFF',
     WHITE: '#FFFFFF',
 
     GREEN_700: '#00875F',
@@ -27,4 +28,4 @@ export default {
     LG: 18,
     XL: 24,
   },
-}
+})

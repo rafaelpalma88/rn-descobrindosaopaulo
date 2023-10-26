@@ -1,14 +1,14 @@
-import { TouchableOpacityProps } from 'react-native'
+import { Button as NativeBaseButton, IButtonProps } from 'native-base'
 import * as S from './styles'
 
-interface Props extends TouchableOpacityProps {
+interface Props extends IButtonProps {
   text: string
 }
 
 export function Button({ text, ...rest }: Props) {
   return (
-    <S.Container {...rest} testID="button">
+    <NativeBaseButton w="full" {...rest} testID="button">
       <S.Text>{text}</S.Text>
-    </S.Container>
+    </NativeBaseButton>
   )
 }

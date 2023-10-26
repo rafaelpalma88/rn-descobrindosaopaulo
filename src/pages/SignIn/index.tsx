@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Input } from '@components/Input'
 import { Center, Text, VStack, Pressable, Icon } from 'native-base'
 import { MaterialIcons } from '@expo/vector-icons'
+import { Button } from '@components/Button'
 
 export function SignIn() {
   const [cpfNumber, setCpfNumber] = useState<string | undefined>('')
@@ -59,6 +60,7 @@ export function SignIn() {
             </Pressable>
           }
         />
+        <Button text="Entrar" />
       </Center>
     </VStack>
   )

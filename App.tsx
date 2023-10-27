@@ -1,9 +1,9 @@
 /* eslint-disable camelcase */
 import { SafeAreaView, StatusBar } from 'react-native'
 import { Routes } from './src/routes'
-import useCustomTheme from '@hooks/useCustomTheme'
-import { ThemeProvider } from 'styled-components'
-import { lightTheme } from './src/themes/light'
+// import useCustomTheme from '@hooks/useCustomTheme'
+// import { ThemeProvider } from 'styled-components'
+import { theme } from './src/themes'
 import {
   useFonts,
   Roboto_400Regular,
@@ -17,15 +17,13 @@ export default function App() {
 
   return (
     <>
-      {/* Verificar se está certo este SafeAreaView */}
       {/* <SafeAreaView> */}
-      <NativeBaseProvider theme={lightTheme}>
+      <NativeBaseProvider theme={theme}>
         <StatusBar
-          barStyle="light-content"
-          backgroundColor="transparent"
-          translucent
+          barStyle="dark-content"
+          // backgroundColor="transparent"
+          // translucent
         />
-        {/* Quando puder voltar na StatusBar pois não vi refletir alterações como desejado */}
         {fontsLoaded ? <Routes /> : <Loading />}
       </NativeBaseProvider>
       {/* </SafeAreaView> */}

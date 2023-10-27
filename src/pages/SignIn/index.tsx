@@ -1,9 +1,19 @@
 import { useState } from 'react'
 import { Input } from '@components/Input'
-import { Center, Text, VStack, Pressable, Icon, ScrollView } from 'native-base'
+import {
+  Center,
+  Text,
+  VStack,
+  Pressable,
+  Icon,
+  ScrollView,
+  Image,
+  KeyboardAvoidingView,
+} from 'native-base'
 import { MaterialIcons } from '@expo/vector-icons'
 import { Button } from '@components/Button'
 import { useNavigation } from '@react-navigation/native'
+import logoDescSp from '@assets/logoDescSp.png'
 
 export function SignIn() {
   const [cpfNumber, setCpfNumber] = useState<string | undefined>('')
@@ -35,6 +45,10 @@ export function SignIn() {
       contentContainerStyle={{ flexGrow: 1 }}
       showsVerticalScrollIndicator={false}
     >
+      {/* <KeyboardAvoidingView
+        behavior="padding" // Comportamento para ajustar a exibição ao abrir o teclado
+        style={{ flex: 1 }}
+      > */}
       <VStack flex={1} bg="gray.900">
         <Center
           style={{
@@ -43,9 +57,15 @@ export function SignIn() {
             paddingRight: 30,
           }}
         >
-          <Text color="gray.100" fontSize="sm" style={{ marginBottom: 40 }}>
+          {/* <Text color="gray.100" fontSize="sm" style={{ marginBottom: 40 }}>
             Descobrindo São Paulo
-          </Text>
+          </Text> */}
+          <Image
+            source={logoDescSp}
+            style={{ width: '100%', height: 150, marginBottom: 20 }}
+            resizeMode="cover"
+            alt="Descobrindo São Paulo"
+          />
           <Input
             keyboardType="numeric"
             placeholder="CPF"
@@ -95,6 +115,7 @@ export function SignIn() {
           />
         </Center>
       </VStack>
+      {/* </KeyboardAvoidingView> */}
     </ScrollView>
   )
 }

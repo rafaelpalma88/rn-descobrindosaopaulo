@@ -25,11 +25,11 @@ export function Header({ title }: Props) {
       >
         <EvilIcons name="chevron-left" size={36} color="white" />
       </Button>
-      <VStack pl={2}>
-        <Heading borderColor="red.700" borderWidth={1} color="gray.100">
-          {limitLetters(title, 20)}
-        </Heading>
-      </VStack>
+      {/* <VStack pl={2}> */}
+      <Heading pl={2} borderColor="red.700" borderWidth={1} color="gray.100">
+        {limitLetters(title, 20)}
+      </Heading>
+      {/* </VStack> */}
     </HStack>
   )
 }

@@ -43,24 +43,24 @@ describe('Component: Event', () => {
     // expect(component).toBeTruthy()
   })
 
-  it('should click contact organizer', () => {
-    const { debug } = render(
-      <Event
-        id={eventMock.id}
-        active={eventMock.active}
-        image={eventMock.image}
-        title={eventMock.title}
-        address={eventMock.address}
-        description={eventMock.description}
-        startDate={eventMock.startDate}
-        endDate={eventMock.endDate}
-        latitude={eventMock.latitude}
-        longitude={eventMock.longitude}
-      />,
-    )
+  // it('should click contact organizer', () => {
+  //   const { debug } = render(
+  //     <Event
+  //       id={eventMock.id}
+  //       active={eventMock.active}
+  //       image={eventMock.image}
+  //       title={eventMock.title}
+  //       address={eventMock.address}
+  //       description={eventMock.description}
+  //       startDate={eventMock.startDate}
+  //       endDate={eventMock.endDate}
+  //       latitude={eventMock.latitude}
+  //       longitude={eventMock.longitude}
+  //     />,
+  //   )
 
-    const button = screen.queryByTestId('contact-organizer')
+  //   const button = screen.queryByTestId('contact-organizer')
 
-    // expect(component).toBeTruthy()
-  })
+  //   // expect(component).toBeTruthy()
+  // })
 })

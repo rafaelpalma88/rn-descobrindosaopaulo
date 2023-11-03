@@ -72,6 +72,8 @@ export function SignIn() {
             value={cpfNumber}
             onChangeText={formatCPF}
             maxLength={14}
+            // autoComplete="off"
+            // mudar cor cursor quando está digitando para facilitar para o usuário
           />
           <Input
             placeholder="Senha"

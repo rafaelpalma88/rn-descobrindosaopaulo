@@ -1,4 +1,3 @@
-import { Linking } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { IEvent } from '../../@types/event' // aquinao funcinou o path mapping
 import { getDayOfWeek } from '@utils/getDayOfWeek'
@@ -6,9 +5,9 @@ import { getDay } from '@utils/getDay'
 import { getMonth } from '@utils/getMonth'
 import { getHourAndMinutes } from '@utils/getHour'
 import { firstLetterUppercase } from '@utils/firstLetterUppercase'
-// import { Button } from '@components/Button'
 import { Button } from 'native-base'
 import * as S from './styles'
+import { openGoogleMaps } from '@utils/openGoogleMaps'
 
 export function Event({
   image,
@@ -19,11 +18,6 @@ export function Event({
   latitude,
   longitude,
 }: IEvent) {
-  function openGoogleMaps(latitude: string, longitude: string) {
-    const url = `geo:${latitude},${longitude}`
-    Linking.openURL(url)
-  }
-
   const navigation = useNavigation()
 
   function handleContactOrganizer() {

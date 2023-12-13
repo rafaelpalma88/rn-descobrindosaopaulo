@@ -1,5 +1,6 @@
 import { Event } from '.'
 import { render, screen } from '@testing-library/react-native'
+import { Linking } from 'react-native'
 
 const eventMock = {
   id: '7532aeea9-0859-4128-ac49-144da92b0276',

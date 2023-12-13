@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1702468079233" clover="3.2.0">
-  <project timestamp="1702468079233" name="All files">
-    <metrics statements="51" coveredstatements="36" conditionals="16" coveredconditionals="10" methods="22" coveredmethods="13" elements="89" coveredelements="59" complexity="0" loc="51" ncloc="51" packages="14" files="18" classes="18"/>
+<coverage generated="1702469114015" clover="3.2.0">
+  <project timestamp="1702469114016" name="All files">
+    <metrics statements="51" coveredstatements="39" conditionals="16" coveredconditionals="11" methods="22" coveredmethods="14" elements="89" coveredelements="64" complexity="0" loc="51" ncloc="51" packages="15" files="19" classes="19"/>
     <package name="rn-descobrindosaopaulo">
       <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="events.js" path="/home/rafaelpalma/Documents/rn-descobrindosaopaulo/events.js">
@@ -17,15 +17,13 @@
       </file>
     </package>
     <package name="rn-descobrindosaopaulo.src.components.Event">
-      <metrics statements="9" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="1"/>
+      <metrics statements="7" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
       <file name="index.tsx" path="/home/rafaelpalma/Documents/rn-descobrindosaopaulo/src/components/Event/index.tsx">
-        <metrics statements="6" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="1"/>
-        <line num="23" count="0" type="stmt"/>
+        <metrics statements="4" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
+        <line num="21" count="1" type="stmt"/>
         <line num="24" count="0" type="stmt"/>
-        <line num="27" count="1" type="stmt"/>
-        <line num="30" count="0" type="stmt"/>
-        <line num="33" count="0" type="stmt"/>
-        <line num="44" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
       </file>
       <file name="styles.ts" path="/home/rafaelpalma/Documents/rn-descobrindosaopaulo/src/components/Event/styles.ts">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -141,12 +139,20 @@
       </file>
     </package>
     <package name="rn-descobrindosaopaulo.src.utils.limitLetters">
-      <metrics statements="3" coveredstatements="2" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
+      <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
       <file name="index.ts" path="/home/rafaelpalma/Documents/rn-descobrindosaopaulo/src/utils/limitLetters/index.ts">
-        <metrics statements="3" coveredstatements="2" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
-        <line num="2" count="1" type="cond" truecount="1" falsecount="1"/>
+        <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="2" count="2" type="cond" truecount="2" falsecount="0"/>
         <line num="3" count="1" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="rn-descobrindosaopaulo.src.utils.openGoogleMaps">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="index.tsx" path="/home/rafaelpalma/Documents/rn-descobrindosaopaulo/src/utils/openGoogleMaps/index.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
       </file>
     </package>
   </project>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1699016205378" clover="3.2.0">
-  <project timestamp="1699016205379" name="All files">
-    <metrics statements="51" coveredstatements="33" conditionals="16" coveredconditionals="9" methods="22" coveredmethods="12" elements="89" coveredelements="54" complexity="0" loc="51" ncloc="51" packages="14" files="18" classes="18"/>
+<coverage generated="1702468079233" clover="3.2.0">
+  <project timestamp="1702468079233" name="All files">
+    <metrics statements="51" coveredstatements="36" conditionals="16" coveredconditionals="10" methods="22" coveredmethods="13" elements="89" coveredelements="59" complexity="0" loc="51" ncloc="51" packages="14" files="18" classes="18"/>
     <package name="rn-descobrindosaopaulo">
       <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="events.js" path="/home/rafaelpalma/Documents/rn-descobrindosaopaulo/events.js">
@@ -22,7 +22,7 @@
         <metrics statements="6" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="1"/>
         <line num="23" count="0" type="stmt"/>
         <line num="24" count="0" type="stmt"/>
-        <line num="27" count="2" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
         <line num="30" count="0" type="stmt"/>
         <line num="33" count="0" type="stmt"/>
         <line num="44" count="0" type="stmt"/>
@@ -35,11 +35,11 @@
       </file>
     </package>
     <package name="rn-descobrindosaopaulo.src.components.Header">
-      <metrics statements="3" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+      <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
       <file name="index.tsx" path="/home/rafaelpalma/Documents/rn-descobrindosaopaulo/src/components/Header/index.tsx">
-        <metrics statements="3" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
         <line num="11" count="2" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
         <line num="23" count="0" type="stmt"/>
       </file>
     </package>
@@ -141,11 +141,11 @@
       </file>
     </package>
     <package name="rn-descobrindosaopaulo.src.utils.limitLetters">
-      <metrics statements="3" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <metrics statements="3" coveredstatements="2" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
       <file name="index.ts" path="/home/rafaelpalma/Documents/rn-descobrindosaopaulo/src/utils/limitLetters/index.ts">
-        <metrics statements="3" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="2" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="3" count="0" type="stmt"/>
+        <metrics statements="3" coveredstatements="2" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <line num="2" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="3" count="1" type="stmt"/>
         <line num="5" count="0" type="stmt"/>
       </file>
     </package>

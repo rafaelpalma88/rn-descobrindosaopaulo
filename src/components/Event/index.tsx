@@ -8,6 +8,7 @@ import { firstLetterUppercase } from '@utils/firstLetterUppercase'
 import { Button } from 'native-base'
 import * as S from './styles'
 import { openGoogleMaps } from '@utils/openGoogleMaps'
+import { AppNavigatorRoutesProps } from 'src/routes/app.routes'
 
 export function Event({
   image,
@@ -18,7 +19,7 @@ export function Event({
   latitude,
   longitude,
 }: IEvent) {
-  const navigation = useNavigation()
+  const navigation = useNavigation<AppNavigatorRoutesProps>()
 
   function handleContactOrganizer() {
     navigation.navigate('contact')
@@ -36,6 +37,7 @@ export function Event({
       <Button
         // text="Abrir o endereço"
         onPress={() => openGoogleMaps(latitude, longitude)}
+        testID="button-open-google-maps"
       >
         Abrir o endereço
       </Button>

@@ -1,6 +1,8 @@
+import { openGoogleMaps } from '@utils/openGoogleMaps'
 import { Event } from '.'
-import { render, screen } from '@testing-library/react-native'
-import { Linking } from 'react-native'
+import { fireEvent, render, screen } from '@testing-library/react-native'
+import { NavigationContainer } from '@react-navigation/native'
+import { NativeBaseProvider } from 'native-base'
 
 const eventMock = {
   id: '7532aeea9-0859-4128-ac49-144da92b0276',
@@ -21,47 +23,48 @@ const eventMock = {
 }
 
 describe('Component: Event', () => {
-  it('should render Event component', () => {
-    const { debug } = render(
-      <Event
-        id={eventMock.id}
-        active={eventMock.active}
-        image={eventMock.image}
-        title={eventMock.title}
-        address={eventMock.address}
-        description={eventMock.description}
-        startDate={eventMock.startDate}
-        endDate={eventMock.endDate}
-        latitude={eventMock.latitude}
-        longitude={eventMock.longitude}
-      />,
+  it('should call openGoogleMaps on button press', () => {
+    jest.mock('@utils/openGoogleMaps', () => ({
+      openGoogleMaps: jest.fn(),
+    }))
+
+    const MockedNativeBaseConfigProvider = ({
+      children,
+    }: {
+      children: React.ReactNode
+    }) => <NativeBaseProvider>{children}</NativeBaseProvider>
+
+    const MockedNavigationContainer = ({
+      children,
+    }: {
+      children: React.ReactNode
+    }) => <NavigationContainer>{children}</NavigationContainer>
+
+    render(
+      <MockedNativeBaseConfigProvider>
+        <MockedNavigationContainer>
+          <Event
+            id={eventMock.id}
+            active={eventMock.active}
+            image={eventMock.image}
+            title={eventMock.title}
+            address={eventMock.address}
+            description={eventMock.description}
+            startDate={eventMock.startDate}
+            endDate={eventMock.endDate}
+            latitude={eventMock.latitude}
+            longitude={eventMock.longitude}
+          />
+        </MockedNavigationContainer>
+      </MockedNativeBaseConfigProvider>,
     )
 
-    debug()
+    const openAddressButton = screen.getByTestId('button-open-google-maps')
+    fireEvent.press(openAddressButton)
 
-    // const component = screen.queryByTestId('button')
-
-    // expect(component).toBeTruthy()
+    expect(openGoogleMaps).toHaveBeenCalledWith(
+      eventMock.latitude,
+      eventMock.longitude,
+    )
   })
-
-  // it('should click contact organizer', () => {
-  //   const { debug } = render(
-  //     <Event
-  //       id={eventMock.id}
-  //       active={eventMock.active}
-  //       image={eventMock.image}
-  //       title={eventMock.title}
-  //       address={eventMock.address}
-  //       description={eventMock.description}
-  //       startDate={eventMock.startDate}
-  //       endDate={eventMock.endDate}
-  //       latitude={eventMock.latitude}
-  //       longitude={eventMock.longitude}
-  //     />,
-  //   )
-
-  //   const button = screen.queryByTestId('contact-organizer')
-
-  //   // expect(component).toBeTruthy()
-  // })
 })

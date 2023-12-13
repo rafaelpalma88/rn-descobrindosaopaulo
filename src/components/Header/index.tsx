@@ -2,21 +2,19 @@ import { Button, HStack, Heading, VStack } from 'native-base'
 import { EvilIcons } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native'
 import { limitLetters } from '@utils/limitLetters'
+import { AppNavigatorRoutesProps } from 'src/routes/app.routes'
 
 interface Props {
   title: string
 }
 
 export function Header({ title }: Props) {
-  const navigation = useNavigation()
+  const navigation = useNavigation<AppNavigatorRoutesProps>()
   return (
-    <HStack bg="gray.600" pt={16} pb={5} px={8} alignItems="center">
-      {/* <Icon as={ChevronLeftIcon} size="5" color="coolGray.800" /> */}
+    <HStack bg="gray.600" paddingTop={6} pb={5} px={8} alignItems="center">
       <Button
         size={8}
         bg="transparent"
-        borderColor="red.700"
-        borderWidth={1}
         justifyContent="center"
         alignItems="center"
         onPress={() => {
@@ -25,11 +23,9 @@ export function Header({ title }: Props) {
       >
         <EvilIcons name="chevron-left" size={36} color="white" />
       </Button>
-      {/* <VStack pl={2}> */}
-      <Heading pl={2} borderColor="red.700" borderWidth={1} color="gray.100">
+      <Heading pl={4} color="gray.100">
         {limitLetters(title, 20)}
       </Heading>
-      {/* </VStack> */}
     </HStack>
   )
 }

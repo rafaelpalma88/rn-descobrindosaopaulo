@@ -1,5 +1,5 @@
 import { openGoogleMaps } from '@utils/openGoogleMaps'
-import { Event } from '.'
+import { EventResume } from '.'
 import { fireEvent, render, screen } from '@testing-library/react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import { NativeBaseProvider } from 'native-base'
@@ -22,7 +22,7 @@ const eventMock = {
   longitude: '-46.62603453578621',
 }
 
-describe('Component: Event', () => {
+describe('Component: EventResume', () => {
   it('should call openGoogleMaps on button press', () => {
     jest.mock('@utils/openGoogleMaps', () => ({
       openGoogleMaps: jest.fn(),
@@ -43,7 +43,7 @@ describe('Component: Event', () => {
     render(
       <MockedNativeBaseConfigProvider>
         <MockedNavigationContainer>
-          <Event
+          <EventResume
             id={eventMock.id}
             active={eventMock.active}
             image={eventMock.image}

@@ -10,7 +10,7 @@ import * as S from './styles'
 import { openGoogleMaps } from '@utils/openGoogleMaps'
 import { AppNavigatorRoutesProps } from 'src/routes/app.routes'
 
-export function Event({
+export function EventWholeInformation({
   image,
   title,
   address,
@@ -29,6 +29,7 @@ export function Event({
     <S.Container>
       <S.EventTitle>{title}</S.EventTitle>
       <S.CustomText>
+        {firstLetterUppercase(getDayOfWeek(startDate))}
         {firstLetterUppercase(getDayOfWeek(startDate))} - {getDay(startDate)}/
         {getMonth(startDate)} das {`${getHourAndMinutes(startDate)}`} as{' '}
         {`${getHourAndMinutes(endDate)}`}

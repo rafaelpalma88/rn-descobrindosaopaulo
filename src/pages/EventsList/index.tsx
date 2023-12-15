@@ -1,16 +1,20 @@
 import { useEffect, useState } from 'react'
 import { Text, View } from 'react-native'
 import axios from 'axios'
-import { Event } from '@components/Event'
+import { EventResume } from '@components/EventResume'
 import { IEvent } from '../../@types/event'
 import { events as eventsMock } from '../../../events'
 import * as S from './styles'
 import { Header } from '@components/Header'
-import { VStack } from 'native-base'
+import { Button, VStack } from 'native-base'
+import { useNavigation } from '@react-navigation/native'
+import { AppNavigatorRoutesProps } from 'src/routes/app.routes'
 
-export function Events() {
+export function EventsList() {
   const [events, setEvents] = useState<IEvent[]>([])
   const [loading, setLoading] = useState<boolean>(true)
+
+  const navigation = useNavigation<AppNavigatorRoutesProps>()
 
   useEffect(() => {
     async function getEvents() {
@@ -55,7 +59,7 @@ export function Events() {
               .filter((event) => event.active)
               .map((event) => {
                 return (
-                  <Event
+                  <EventResume
                     key={event.id}
                     id={event.id}
                     active={event.active}

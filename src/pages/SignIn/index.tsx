@@ -9,11 +9,13 @@ import {
   ScrollView,
   Image,
   KeyboardAvoidingView,
+  View,
 } from 'native-base'
 import { MaterialIcons } from '@expo/vector-icons'
 import { Button } from '@components/Button'
 import { useNavigation } from '@react-navigation/native'
-import logoDescSp from '@assets/logoDescSp.png'
+import LogoDisfrutaParaguay from '@assets/logoDisfrutaParaguay.svg'
+import { Dimensions } from 'react-native'
 
 export function SignIn() {
   const [cpfNumber, setCpfNumber] = useState<string | undefined>('')
@@ -21,24 +23,8 @@ export function SignIn() {
 
   const navigation = useNavigation()
 
-  const formatCPF = (text: string) => {
-    // Remove todos os caracteres não numéricos do texto
-    const cleanedText = text.replace(/\D/g, '')
-
-    // Aplica a máscara de CPF (XXX.XXX.XXX-XX)
-    const formattedText = cleanedText.replace(
-      /(\d{0,3})(\d{0,3})(\d{0,3})(\d{0,2})/,
-      (match, p1, p2, p3, p4) => {
-        let result = ''
-        if (p1) result += p1
-        if (p2) result += `.${p2}`
-        if (p3) result += `.${p3}`
-        if (p4) result += `-${p4}`
-        return result
-      },
-    )
-
-    setCpfNumber(formattedText)
+  function handleLogin() {
+    return true
   }
   return (
     <ScrollView
@@ -60,13 +46,20 @@ export function SignIn() {
           {/* <Text color="gray.100" fontSize="sm" style={{ marginBottom: 40 }}>
             Descobrindo São Paulo
           </Text> */}
-          <Image
+          {/* <Image
             source={logoDescSp}
             style={{ width: '100%', height: 150, marginBottom: 20 }}
             resizeMode="cover"
             alt="Descobrindo São Paulo"
-          />
-          <Input
+          /> */}
+          <View marginBottom={30}>
+            <LogoDisfrutaParaguay
+              width={300} // Largura personalizada do SVG
+              height={100} // Altura personalizada do SVG
+            />
+          </View>
+
+          {/* <Input
             keyboardType="numeric"
             placeholder="CPF"
             value={cpfNumber}
@@ -74,6 +67,14 @@ export function SignIn() {
             maxLength={14}
             // autoComplete="off"
             // mudar cor cursor quando está digitando para facilitar para o usuário
+          /> */}
+          <Input
+            keyboardType="email-address"
+            placeholder="E-mail"
+            // value={email}
+            // onChangeText={formatCPF}
+            // maxLength={14}
+            // autoComplete="off"
           />
           <Input
             placeholder="Senha"
@@ -95,7 +96,7 @@ export function SignIn() {
               </Pressable>
             }
           />
-          <Button variant="solid" text="Entrar" />
+          <Button variant="solid" text="Entrar" onPress={handleLogin} />
         </Center>
         <Center
           style={{

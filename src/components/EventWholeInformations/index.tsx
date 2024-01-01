@@ -29,7 +29,6 @@ export function EventWholeInformation({
     <S.Container>
       <S.EventTitle>{title}</S.EventTitle>
       <S.CustomText>
-        {firstLetterUppercase(getDayOfWeek(startDate))}
         {firstLetterUppercase(getDayOfWeek(startDate))} - {getDay(startDate)}/
         {getMonth(startDate)} das {`${getHourAndMinutes(startDate)}`} as{' '}
         {`${getHourAndMinutes(endDate)}`}

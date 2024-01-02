@@ -16,6 +16,7 @@ import { Button } from '@components/Button'
 import { useNavigation } from '@react-navigation/native'
 import LogoDisfrutaParaguay from '@assets/logoDisfrutaParaguay.svg'
 import { useForm, Controller } from 'react-hook-form'
+import { AuthNavigatorRoutesProps } from 'src/routes/auth.routes'
 
 type FormDataProps = {
   email: string
@@ -23,10 +24,9 @@ type FormDataProps = {
 }
 
 export function SignIn() {
-  const [cpfNumber, setCpfNumber] = useState<string | undefined>('')
   const [show, setShow] = useState(false)
 
-  const navigation = useNavigation()
+  const navigation = useNavigation<AuthNavigatorRoutesProps>()
 
   const {
     control,
@@ -79,31 +79,12 @@ export function SignIn() {
             paddingRight: 30,
           }}
         >
-          {/* <Text color="gray.100" fontSize="sm" style={{ marginBottom: 40 }}>
-            Descobrindo São Paulo
-          </Text> */}
-          {/* <Image
-            source={logoDescSp}
-            style={{ width: '100%', height: 150, marginBottom: 20 }}
-            resizeMode="cover"
-            alt="Descobrindo São Paulo"
-          /> */}
           <View marginBottom={30}>
             <LogoDisfrutaParaguay
               width={300} // Largura personalizada do SVG
               height={100} // Altura personalizada do SVG
             />
           </View>
-
-          {/* <Input
-            keyboardType="numeric"
-            placeholder="CPF"
-            value={cpfNumber}
-            onChangeText={formatCPF}
-            maxLength={14}
-            // autoComplete="off"
-            // mudar cor cursor quando está digitando para facilitar para o usuário
-          /> */}
 
           <Controller
             control={control}
@@ -112,6 +93,7 @@ export function SignIn() {
             }}
             render={({ field: { onChange, onBlur, value } }) => (
               <Input
+                {/* mudar cor cursor quando está digitando para facilitar para o usuário */}
                 placeholder="E-mail"
                 onBlur={onBlur}
                 onChangeText={onChange}
@@ -147,7 +129,7 @@ export function SignIn() {
                     />
                   </Pressable>
                 }
-                placeholder="Senha"
+                placeholder="Password"
                 onBlur={onBlur}
                 onChangeText={onChange}
                 value={value}
@@ -158,7 +140,6 @@ export function SignIn() {
           <Button
             variant="solid"
             text="Entrar"
-            // title="Entrar"
             onPress={handleSubmit(handleSignIn)}
           />
         </Center>

@@ -92,8 +92,8 @@ export function SignIn() {
               required: true,
             }}
             render={({ field: { onChange, onBlur, value } }) => (
+              //  mudar cor cursor quando está digitando para facilitar para o usuário
               <Input
-                {/* mudar cor cursor quando está digitando para facilitar para o usuário */}
                 placeholder="E-mail"
                 onBlur={onBlur}
                 onChangeText={onChange}
